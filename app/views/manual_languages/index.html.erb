@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>Manual tiny search</h4>
+  </div>
+  <div class="panel-body">
+    <%= form_tag(manual_languages_path, method: "get") do %>
+      <div class="container-fluid">
+        <div class='col-md-3'>
+          <div class="form-group">
+            <div class='input-group date' id='date-from-comp'>
+              <span class="input-group-addon">
+                <%= glyph(:search) %>
+              </span>
+              <input type='text' class="form-control" name="search" id="search" value="<%= params[:search] %>" />
+            </div>
+          </div>
+        </div>
+
+        <div class='col-md-3 filter-buttons-div'>
+            <%= submit_tag("Search",  class: 'btn btn-primary', data: { disable_with: "Searching..." }) %>
+        </div>
+      </div>
+    <% end %>
+    <%= render 'search_results' if @results.present? %>
+  </div>
+</div>
