@@ -1,7 +1,7 @@
 Search test app
 ======================================
 
-# Installation
+## Installation
 
 This is a brief tutorial about how to get running this application in few steps.
 
@@ -16,7 +16,7 @@ We will go through these steps:
 * Re-index the database (optional)
 * Shutdown the Solr service (optional)
 
-## Checkout the code or unzip it
+### Checkout the code or unzip it
 
 Installing from Github:
 
@@ -30,13 +30,13 @@ If you are installing from a tar.gz file:
 tar -zxvf [filename].tar.gz
 ```
 
-## Install the dependencies
+### Install the dependencies
 
 ```
 bundle install
 ```
 
-## Start the Solr service
+### Start the Solr service
 
 This should be done before running the migrations so the Solr server can index automatically the data:
 
@@ -44,25 +44,25 @@ This should be done before running the migrations so the Solr server can index a
 bundle exec rake sunspot:solr:start
 ```
 
-## Run migrations and seeds
+### Run migrations and seeds
 
 ```
 bundle exec rake db:migrate db:seed
 ```
 
-## Run the tests (optional)
+### Run the tests (optional)
 
 ```
 bundle exec rspec spec/
 ```
 
-## Start the web server
+### Start the web server
 
 ```
 bundle exec rails s
 ```
 
-## Access the application
+### Access the application
 
 The application can be reached in the default Rails development URL:
 
@@ -70,7 +70,7 @@ The application can be reached in the default Rails development URL:
 http://localhost:3000
 ```
 
-## Re-index the database (optional)
+### Re-index the database (optional)
 
 If for some reason the database was not indexed, because for example, the seed file was load before starting the Solr service,
 there isn't any problem, just be sure the Solr service is running and re-index the database like this:
@@ -79,7 +79,7 @@ there isn't any problem, just be sure the Solr service is running and re-index t
 bundle exec rake sunspot:reindex
 ```
 
-## Shutdown the Solr service (optional)
+### Shutdown the Solr service (optional)
 
 When you don't need to run this app anymore, it's a good idea to shutdown the Solr service
 
@@ -87,7 +87,7 @@ When you don't need to run this app anymore, it's a good idea to shutdown the So
 bundle exec rake sunspot:solr:stop
 ```
 
-# Description
+## Description
 
 Two approaches are introduced by this app:
 * Full-text search using Apache Solr
@@ -107,6 +107,6 @@ Also, the time constraint is not minor, so for example, only the main search met
 It's also important to say that both searches doesn't work exactly in the same way, and that is on purpose because the intention
 was not to replicate one in the other. Although both searches will return the same relevant results, there are differences.
 
-# Author
+## Author
 
 [Martin Bianculli](mailto:mbianculli@gmail.com)
