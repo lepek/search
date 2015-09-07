@@ -104,7 +104,9 @@ can be found here: https://cwiki.apache.org/confluence/display/solr/The+Standard
 The most interesting search for this exercise probably is the second approach. The relevant classes are documented in-line
 and the most important method is unit tested. Decisions were taken following the app description,
 personal criteria, but, more important, trying to show as many options and solutions or implementations as possible.
-Also, the time constraint is not minor, so for example, only the main search method was unit tested, and only unit testing was done.
+Also, the time constraint is not minor, so for example, only the main search method was unit tested,
+and mainly unit testing was done across the app. There are some other tests but they are the minimum that
+I needed to develop and refactor in a comfortable way and it wasn't the intention to make a full test coverage using them.
 
 It's also important to say that both searches doesn't work exactly in the same way, and that is on purpose because the intention
 was not to replicate one in the other. Although both searches will return the same relevant results, there are differences.
