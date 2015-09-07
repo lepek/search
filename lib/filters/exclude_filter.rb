@@ -30,7 +30,7 @@ module Filters
 
     # It uses an array operation, an intersection,
     # to know if any of the not wanted keywords are present in the data item
-    def match(searchable)
+    def match?(searchable)
       @exclude_parts.present? ? (tokenize(searchable) & @exclude_parts).blank? : true
     end
 

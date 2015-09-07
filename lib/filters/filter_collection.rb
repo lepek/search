@@ -33,7 +33,8 @@ module Filters
     # @param [Hash] :field => value style hash
     # @return [Integer] the relevance of the result
     def apply!(searchable)
-      return relevance_from_cache(searchable) if relevance_from_cache(searchable).present?
+      relevance = relevance_from_cache(searchable)
+      return relevance if relevance.present?
       apply_filters(searchable)
     end
 
@@ -50,7 +51,7 @@ module Filters
     def apply_filters(searchable)
       relevance = 0
       @applicable_filters.each do |filter|
-        if filter.match(searchable)
+        if filter.match?(searchable)
           relevance += filter.relevance
         else
           relevance = 0 and break if filter.exclusive?

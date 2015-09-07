@@ -34,7 +34,7 @@ module Filters
       @phrase_parts.present?
     end
 
-    def match(searchable)
+    def match?(searchable)
       @phrase_parts.present? && match_searchable_part?(searchable)
     end
 

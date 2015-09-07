@@ -32,7 +32,7 @@ module Filters
     # If at least one keyword if found, the filter reports results.
     # It could be improved taking in account the matched field.
     # It could be modified to be more strict by only allowing results with all the search criteria keywords.
-    def match(searchable)
+    def match?(searchable)
       @relevance = @words.present? ? (tokenize(searchable) & @words).count : 0
       @relevance > 0
     end
