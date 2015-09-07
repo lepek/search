@@ -49,7 +49,7 @@ module Filters
     # removing non relevant keywords like `and`, `or`, etc
     # or taking in account other splits criteria
     def tokenize(data)
-      data.map { |key, value| value.downcase.split(SPLIT_REGEX) }.flatten
+      data.map { |_, value| value.downcase.split(SPLIT_REGEX) }.flatten
     end
 
   end

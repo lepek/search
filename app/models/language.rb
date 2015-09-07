@@ -12,7 +12,7 @@ class Language < ActiveRecord::Base
   # To read about the default parser: https://cwiki.apache.org/confluence/display/solr/The+Standard+Query+Parser
   #
   def self.look(text)
-    languages = self.search do
+    languages = search do
       fulltext text do
         boost_fields name: 3.0, kind: 2.0
       end

@@ -33,10 +33,7 @@ module Filters
     # It could be improved taking in account the matched field.
     # It could be modified to be more strict by only allowing results with all the search criteria keywords.
     def match(searchable)
-      @relevance = 0
-      if @words.present?
-        @relevance = (tokenize(searchable) & @words).count
-      end
+      @relevance = @words.present? ? (tokenize(searchable) & @words).count : 0
       @relevance > 0
     end
 
@@ -51,7 +48,7 @@ module Filters
     private
 
     def tokenize(data)
-      data.map { |key, value| value.downcase.split(SPLIT_REGEX) }.flatten
+      data.map { |_, value| value.downcase.split(SPLIT_REGEX) }.flatten
     end
 
   end

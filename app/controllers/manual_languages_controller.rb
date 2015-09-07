@@ -6,13 +6,13 @@ class ManualLanguagesController < ApplicationController
       filter_collection = ::Filters::FilterCollection.new(params[:search])
       @results = []
 
-      # it applies the filters to each data item in the data set
-      # if it passes, it is included in the results,
-      # taking in account the relevance
+      # if the filter is produces a valid result, the result is added to the array
+      # taking in account its relevance
       languages.each do |language|
-        if filter_collection.apply(language)
-          @results[filter_collection.relevance] ||= Array.new
-          @results[filter_collection.relevance] << language
+        if filter_collection.valid?(language)
+          relevance = filter_collection.apply!(language)
+          @results[relevance] ||= []
+          @results[relevance] << language
         end
       end
 

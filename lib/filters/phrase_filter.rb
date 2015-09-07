@@ -15,7 +15,7 @@ module Filters
     BASE_RELEVANCE = 10
 
     # For this filter, a relevance by field is implemented
-    FIELD_RELEVANCE = {'Name' => 3, 'Type' => 2, 'Designed by' => 1}
+    FIELD_RELEVANCE = { 'Name' => 3, 'Type' => 2, 'Designed by' => 1 }
 
     # if this filter fails,
     # there is no need to keep applying filters to the data item
@@ -27,7 +27,7 @@ module Filters
     def initialize(search_string)
       @search_string = search_string
       @phrase_parts = @search_string.scan(EXACT_MATCHES_REGEX).flatten!
-      @phrase_parts.map!{ |part| part.strip.squeeze(' ') } if @phrase_parts.present?
+      @phrase_parts.map! { |part| part.strip.squeeze(' ') } if @phrase_parts.present?
     end
 
     def valid?
@@ -51,12 +51,12 @@ module Filters
     private
 
     def add_relevance(field)
-      @relevance ||= Array.new
+      @relevance ||= []
       @relevance << FIELD_RELEVANCE[field] unless FIELD_RELEVANCE[field].nil?
     end
 
     def match_searchable_part?(searchable)
-      @relevance = Array.new
+      @relevance = []
       @phrase_parts.each do |part|
         searchable.each do |key, value|
           add_relevance(key) if value.downcase.include?(part)

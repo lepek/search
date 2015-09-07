@@ -43,6 +43,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails', '~> 3.0'
+  gem 'rubocop', require: false
 end
 
 gem 'sunspot_rails'

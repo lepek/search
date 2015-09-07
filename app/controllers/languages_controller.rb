@@ -5,4 +5,5 @@ class LanguagesController < ApplicationController
       @results = Language.look(params[:search])
     end
   end
+
 end

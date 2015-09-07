@@ -21,7 +21,7 @@ We will go through these steps:
 Installing from Github:
 
 ```
-git clone git@github.com:lepek/serch-test.git
+git clone git@github.com:lepek/serch.git
 ```
 
 If you are installing from a tar.gz file:
@@ -38,7 +38,9 @@ bundle install
 
 ### Start the Solr service
 
-This should be done before running the migrations so the Solr server can index automatically the data:
+This should be done before running the migrations so the Solr server can index automatically the data.
+Make sure you have a Java Runtime Environment installed and the system PATH variable setup, and then
+start the service like this:
 
 ```
 bundle exec rake sunspot:solr:start
