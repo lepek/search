@@ -23,15 +23,4 @@ class ManualLanguagesController < ApplicationController
 
   end
 
-  private
-
-  # In a real app the data file path should be in a config file,
-  # with a per environment configuration,
-  # using rconfig gem o similar to access it
-  # and if it's read only it's probably a good idea to load it in an initializer.
-  def read_data
-    file_path = Rails.root.join('storage', 'data.json')
-    JSON.parse(File.read(file_path))
-  end
-
 end

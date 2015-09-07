@@ -2,7 +2,7 @@ class LanguagesController < ApplicationController
 
   def index
     if params[:search].present?
-      @results = Language.look(params[:search])
+      @results = Language.lookup(params[:search])
     end
   end
 

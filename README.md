@@ -21,7 +21,7 @@ We will go through these steps:
 Installing from Github:
 
 ```
-git clone git@github.com:lepek/serch.git
+git clone git@github.com:lepek/search.git
 ```
 
 If you are installing from a tar.gz file:
