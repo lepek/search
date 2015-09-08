@@ -29,7 +29,7 @@ class ManualLanguagesController < ApplicationController
 
       # in case there are some results, it removes the nil positions,
       # flat the array and order it from the most relevant results to the less ones
-      @results.present? ? @results.compact!.flatten!.reverse! : []
+      @results = @results.compact.flatten.reverse if @results.present?
     end
 
   end
